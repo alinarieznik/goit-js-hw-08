@@ -20,8 +20,14 @@ fillFormFields();
 // Зроби так, щоб сховище оновлювалось не частіше, ніж раз на 500 мілісекунд. Для цього додай до проекту і використовуй бібліотеку lodash.throttle.
 function onFormSubmit(event) {
   event.preventDefault();
+  const { email, message } = event.currentTarget.elements;
+  if (!email.value || !message.value) {
+    alert('Please fill in all the fields!');
+    return;
+  }
   event.currentTarget.reset();
   console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
+
   localStorage.removeItem(STORAGE_KEY);
 }
 

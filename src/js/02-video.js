@@ -15,4 +15,4 @@ function onPlay(e) {
   localStorage.setItem(STORAGE_KEY, e.seconds);
 }
 
-player.setCurrentTime(JSON.parse(localStorage.getItem(STORAGE_KEY)));
+player.setCurrentTime(JSON.parse(localStorage.getItem(STORAGE_KEY)) || 0);
